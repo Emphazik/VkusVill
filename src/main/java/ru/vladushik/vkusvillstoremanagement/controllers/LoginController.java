@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -143,6 +144,7 @@ public class LoginController {
                     stage.setMinWidth(1100);
                     stage.setMinHeight(600);
                     stage.setScene(scene);
+                    stage.getIcons().add(new Image(HelloApplication.class.getResourceAsStream("VkusLogotype.jpg")));
                     stage.show();
 
                     si_loginBtn.getScene().getWindow().hide();

@@ -19,21 +19,21 @@
                                     <children>
                                         <AnchorPane layoutX="11.0" layoutY="37.0" prefHeight="87.0" prefWidth="222.0" styleClass="header" stylesheets="@mainFormDesign.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <children>
-                                                <Label layoutX="5.0" layoutY="33.0" text="Cafe Shop Management System" textFill="WHITE">
+                                                <Label alignment="CENTER" layoutX="6.0" layoutY="33.0" prefHeight="22.0" prefWidth="221.0" text="ВкуссВилл. Управление" textFill="WHITE">
                                                     <font>
-                                                        <Font size="15.0" />
+                                                        <Font name="Book Antiqua" size="16.0" />
                                                     </font>
                                                 </Label>
                                             </children>
                                         </AnchorPane>
-                                        <Label layoutX="14.0" layoutY="103.0" text="Welcome, " textFill="WHITE">
+                                        <Label layoutX="14.0" layoutY="103.0" text="Приветствую, " textFill="WHITE">
                                             <font>
                                                 <Font size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="usernameLabel" layoutX="84.0" layoutY="100.0" prefHeight="17.0" prefWidth="126.0" text="MarcoMan" textFill="WHITE">
+                                        <Label fx:id="usernameLabel" layoutX="112.0" layoutY="102.0" prefHeight="17.0" prefWidth="126.0" text="MarcoMan" textFill="WHITE">
                                             <font>
-                                                <Font size="18.0" />
+                                                <Font name="Book Antiqua" size="18.0" />
                                             </font>
                                         </Label>
                                         <Button fx:id="logout_btn" layoutX="14.0" layoutY="554.0" mnemonicParsing="false" onAction="#logout" stylesheets="@mainFormDesign.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="14.0">
@@ -45,9 +45,9 @@
                                                 <String fx:value="shadow" />
                                             </styleClass>
                                         </Button>
-                                        <Label layoutX="62.0" layoutY="560.0" text="Sign Out" textFill="WHITE" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="62.0">
+                                        <Label layoutX="62.0" layoutY="560.0" text="Выйти из аккаунта" textFill="WHITE" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="62.0">
                                             <font>
-                                                <Font size="15.0" />
+                                                <Font name="Book Antiqua" size="15.0" />
                                             </font>
                                         </Label>
                                     </children>
@@ -123,10 +123,10 @@
                                             <Button fx:id="selectImageBtn" text="Выбрать картинку" />
                                             <ImageView fx:id="productImage" fitHeight="127.0" fitWidth="120.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true" />
                                         </AnchorPane>
-                                        <Button fx:id="addBtn" layoutX="105.0" layoutY="189.0" mnemonicParsing="false" onAction="#onAddClick" prefHeight="41.0" prefWidth="112.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Add" AnchorPane.bottomAnchor="31.0" />
-                                        <Button fx:id="updateBtn" layoutX="238.0" layoutY="189.0" mnemonicParsing="false" onAction="#onUpdateClick" prefHeight="41.0" prefWidth="112.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Update" AnchorPane.bottomAnchor="31.0" />
-                                        <Button fx:id="clearBtn" layoutX="395.0" layoutY="189.0" mnemonicParsing="false" onAction="#onClearClick" prefHeight="41.0" prefWidth="112.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Clear" AnchorPane.bottomAnchor="31.0" />
-                                        <Button fx:id="deleteBtn" layoutX="528.0" layoutY="189.0" mnemonicParsing="false" onAction="#onDeleteClick" prefHeight="41.0" prefWidth="112.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Delete" AnchorPane.bottomAnchor="31.0" />
+                                        <Button fx:id="addBtn" layoutX="105.0" layoutY="189.0" mnemonicParsing="false" onAction="#onAddClick" prefHeight="41.0" prefWidth="112.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Добавить" AnchorPane.bottomAnchor="31.0" />
+                                        <Button fx:id="updateBtn" layoutX="238.0" layoutY="189.0" mnemonicParsing="false" onAction="#onUpdateClick" prefHeight="41.0" prefWidth="112.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Обновить" AnchorPane.bottomAnchor="31.0" />
+                                        <Button fx:id="clearBtn" layoutX="395.0" layoutY="189.0" mnemonicParsing="false" onAction="#onClearClick" prefHeight="41.0" prefWidth="112.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Очистить" AnchorPane.bottomAnchor="31.0" />
+                                        <Button fx:id="deleteBtn" layoutX="528.0" layoutY="189.0" mnemonicParsing="false" onAction="#onDeleteClick" prefHeight="41.0" prefWidth="112.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Удалить" AnchorPane.bottomAnchor="31.0" />
                                     </children>
                                 </AnchorPane>
                                 <Separator layoutX="14.0" layoutY="312.0" prefHeight="5.0" prefWidth="852.0" AnchorPane.bottomAnchor="283.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0" />
