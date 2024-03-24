@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="016f0048-ab74-44d9-9303-3fb93d44c93a" name="Changes" comment="second commit">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/34af59e2-2fd5-4c57-ad2f-68ec4e87320e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/34af59e2-2fd5-4c57-ad2f-68ec4e87320e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/vladushik/vkusvillstoremanagement/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/vladushik/vkusvillstoremanagement/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/vladushik/vkusvillstoremanagement/loginDesign.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/vladushik/vkusvillstoremanagement/loginDesign.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/controllers/MainFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/controllers/MainFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/dao/ProductDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/database/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/vladushik/vkusvillstoremanagement/main-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/vladushik/vkusvillstoremanagement/main-form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +33,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -41,20 +57,23 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Application.HelloApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/andre/Downloads/VkusVillStoreManagement",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/zolpa/IdeaProjects/VkusVill/libs/fontawesomefx-8.2.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.45747125",
-    "settings.editor.selected.configurable": "preferences.editor",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -65,6 +84,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\zolpa\IdeaProjects\VkusVill\libs" />
       <recent name="C:\Users\andre\Downloads\VkusVillStoreManagement\src\main\resources\ru\vladushik\vkusvillstoremanagement" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -91,6 +111,14 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-20.0.2-corretto-20.0.2.1-4caba194b151-5bc9ecd2" />
+        <option value="jdk-21.0.2-corretto-21.0.2-4caba194b151-51586f01" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -102,6 +130,7 @@
       <workItem from="1711195794888" duration="7153000" />
       <workItem from="1711207478939" duration="17889000" />
       <workItem from="1711232865324" duration="303000" />
+      <workItem from="1711274397778" duration="5815000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />

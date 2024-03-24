@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.vladushik.vkusvillstoremanagement.controllers.MainFormController">
+<StackPane fx:id="imagePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.vladushik.vkusvillstoremanagement.controllers.MainFormController">
     <children>
         <AnchorPane fx:id="mainForm" prefHeight="200.0" prefWidth="200.0">
             <children>
@@ -115,18 +115,18 @@
                                             </font>
                                         </Label>
                                         <TextField fx:id="priceText" layoutX="432.0" layoutY="68.0" prefHeight="25.0" prefWidth="168.0" promptText="\$0.0" />
-                                        <AnchorPane fx:id="imagePane" layoutX="700.0" layoutY="26.0" prefHeight="117.0" prefWidth="120.0" stylesheets="@mainFormDesign.css" AnchorPane.rightAnchor="29.0">
+                                        <StackPane layoutX="700.0" layoutY="26.0" prefHeight="117.0" prefWidth="120.0" stylesheets="@mainFormDesign.css" AnchorPane.rightAnchor="29.0">
                                             <styleClass>
                                                 <String fx:value="white-bg" />
                                                 <String fx:value="shadow" />
                                             </styleClass>
-                                            <Button fx:id="selectImageBtn" text="Выбрать картинку" />
                                             <ImageView fx:id="productImage" fitHeight="127.0" fitWidth="120.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true" />
-                                        </AnchorPane>
+                                        </StackPane>
                                         <Button fx:id="addBtn" layoutX="105.0" layoutY="189.0" mnemonicParsing="false" onAction="#onAddClick" prefHeight="41.0" prefWidth="112.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Добавить" AnchorPane.bottomAnchor="31.0" />
                                         <Button fx:id="updateBtn" layoutX="238.0" layoutY="189.0" mnemonicParsing="false" onAction="#onUpdateClick" prefHeight="41.0" prefWidth="112.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Обновить" AnchorPane.bottomAnchor="31.0" />
                                         <Button fx:id="clearBtn" layoutX="395.0" layoutY="189.0" mnemonicParsing="false" onAction="#onClearClick" prefHeight="41.0" prefWidth="112.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Очистить" AnchorPane.bottomAnchor="31.0" />
                                         <Button fx:id="deleteBtn" layoutX="528.0" layoutY="189.0" mnemonicParsing="false" onAction="#onDeleteClick" prefHeight="41.0" prefWidth="112.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Удалить" AnchorPane.bottomAnchor="31.0" />
+                              <Button layoutX="674.0" layoutY="189.0" mnemonicParsing="false" onAction="#onImportClick" prefHeight="41.0" prefWidth="141.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Выбрать картинку" />
                                     </children>
                                 </AnchorPane>
                                 <Separator layoutX="14.0" layoutY="312.0" prefHeight="5.0" prefWidth="852.0" AnchorPane.bottomAnchor="283.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0" />

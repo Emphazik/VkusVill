@@ -17,7 +17,6 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.getIcons().add(new Image(HelloApplication.class.getResourceAsStream("VkusLogotype.jpg")));
         stage.show();
-
     }
 
     public static void main(String[] args) {

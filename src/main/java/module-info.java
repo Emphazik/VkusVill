@@ -11,6 +11,7 @@ module ru.vladushik.vkusvillstoremanagement {
     requires org.postgresql.jdbc;
 
     opens ru.vladushik.vkusvillstoremanagement to javafx.fxml;
+    opens ru.vladushik.vkusvillstoremanagement.dao to javafx.base;
     opens ru.vladushik.vkusvillstoremanagement.controllers to javafx.fxml;
     exports ru.vladushik.vkusvillstoremanagement;
 }

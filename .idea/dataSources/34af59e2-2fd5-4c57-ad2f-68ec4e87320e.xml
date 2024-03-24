@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="cafe@localhost">
-  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.49">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.51">
     <root id="1">
       <DateStyle>dmy</DateStyle>
       <IntrospectionStateNumber>827</IntrospectionStateNumber>
@@ -4224,8 +4224,7 @@ false Zulu
       <Comment>standard public schema</Comment>
       <Current>1</Current>
       <IntrospectionStateNumber>827</IntrospectionStateNumber>
-      <IntrospectionTimestamp>2024-03-23.16:21:43.821</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2024-03-23.13:21:44</LocalIntrospectionTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-03-23.13:21:44</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>518</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4233,7 +4232,7 @@ false Zulu
     <sequence id="264" parent="263" name="categories_id_seq">
       <DasType>integer|0s</DasType>
       <ObjectId>16459</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>823</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -4241,7 +4240,7 @@ false Zulu
     <sequence id="265" parent="263" name="products_id_seq">
       <DasType>integer|0s</DasType>
       <ObjectId>16468</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>826</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -4249,7 +4248,7 @@ false Zulu
     <sequence id="266" parent="263" name="users_id_seq">
       <DasType>integer|0s</DasType>
       <ObjectId>16450</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>820</StateNumber>
       <OwnerName>postgres</OwnerName>

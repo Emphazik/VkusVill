@@ -1,6 +1,9 @@
 package ru.vladushik.vkusvillstoremanagement.dao;
 
+import javafx.beans.property.*;
 import javafx.scene.image.Image;
+
+import java.io.ByteArrayInputStream;
 
 public class ProductDao {
     private int id;
@@ -8,15 +11,17 @@ public class ProductDao {
     private int price;
     private int count;
     private String category;
+    private byte[] bytes;
     private Image image;
 
-    public ProductDao(int id, String name, int price, int count, String category, Image image) {
+    public ProductDao(int id, String name, int price, int count, String category, byte[] bytes) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.count = count;
         this.category = category;
-        this.image = image;
+        this.bytes = bytes;
+        this.image = new Image(new ByteArrayInputStream(this.bytes));
     }
 
     public ProductDao() {
@@ -30,12 +35,20 @@ public class ProductDao {
         this.id = id;
     }
 
+    public IntegerProperty getIdProperty() {
+        return new SimpleIntegerProperty(id);
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public StringProperty getNameProperty() {
+        return new SimpleStringProperty(name);
     }
 
     public int getPrice() {
@@ -46,12 +59,20 @@ public class ProductDao {
         this.price = price;
     }
 
+    public IntegerProperty getPriceProperty() {
+        return new SimpleIntegerProperty(price);
+    }
+
     public int getCount() {
         return count;
     }
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public IntegerProperty getCountProperty() {
+        return new SimpleIntegerProperty(count);
     }
 
     public String getCategory() {
@@ -62,11 +83,27 @@ public class ProductDao {
         this.category = category;
     }
 
+    public StringProperty getCategoryProperty() {
+        return new SimpleStringProperty(category);
+    }
+
     public Image getImage() {
         return image;
     }
 
     public void setImage(Image image) {
         this.image = image;
+    }
+
+    public ObjectProperty<Image> getImageProperty() {
+        return new SimpleObjectProperty<>(image);
+    }
+
+    public byte[] getBytes() {
+        return bytes;
+    }
+
+    public void setBytes(byte[] bytes) {
+        this.bytes = bytes;
     }
 }

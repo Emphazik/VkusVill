@@ -14,12 +14,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelFormat;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import ru.vladushik.vkusvillstoremanagement.HelloApplication;
 import ru.vladushik.vkusvillstoremanagement.dao.ProductDao;
 import ru.vladushik.vkusvillstoremanagement.database.Database;
@@ -36,6 +38,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -105,7 +108,7 @@ public class MainFormController implements Initializable {
     private Label usernameLabel;
 
     @FXML
-    private AnchorPane imagePane;
+    private StackPane imagePane;
 
     public User user;
     private ProductDao dao;
@@ -123,9 +126,7 @@ public class MainFormController implements Initializable {
         return productIdText.getText().isEmpty()
                 || productNameText.getText().isEmpty()
                 || countText.getText().isEmpty()
-                || countText.getText().chars().allMatch(Character::isDigit)
                 || priceText.getText().isEmpty()
-                || priceText.getText().chars().allMatch(Character::isDigit)
                 || categoryBox.getSelectionModel().isEmpty();
     }
 
@@ -157,7 +158,7 @@ public class MainFormController implements Initializable {
                     prepare.setInt(2, Integer.parseInt(priceText.getText()));
                     prepare.setInt(3, Integer.parseInt(countText.getText()));
                     prepare.setInt(4, categoryBox.getSelectionModel().getSelectedItem().getId());
-                    prepare.setBytes(5, new byte[]{});
+                    prepare.setBytes(5, imageBytes);
                     prepare.executeUpdate();
 
                     alert = new Alert(AlertType.INFORMATION);
@@ -182,7 +183,7 @@ public class MainFormController implements Initializable {
             alert.setContentText("Please fill all blank fields");
             alert.showAndWait();
         } else {
-            String updateData = "UPDATE products SET id = ?, name = ?, count = ?, price = ?, category_id = ?, image = ? WHERE id = ?";
+            String updateData = "UPDATE products SET name = ?, count = ?, price = ?, category_id = ?, image = ? WHERE id = ?";
             connect = Database.getConnection();
             try {
                 alert = new Alert(AlertType.CONFIRMATION);
@@ -192,6 +193,12 @@ public class MainFormController implements Initializable {
                 Optional<ButtonType> option = alert.showAndWait();
                 if (option.get().equals(ButtonType.OK)) {
                     prepare = connect.prepareStatement(updateData);
+                    prepare.setString(1, productNameText.getText());
+                    prepare.setInt(2, Integer.parseInt(countText.getText()));
+                    prepare.setInt(3, Integer.parseInt(priceText.getText()));
+                    prepare.setInt(4, categoryBox.getSelectionModel().getSelectedItem().getId());
+                    prepare.setBytes(5, imageBytes);
+                    prepare.setInt(6, Integer.parseInt(productIdText.getText()));
                     prepare.executeUpdate();
 
                     alert = new Alert(AlertType.INFORMATION);
@@ -259,6 +266,7 @@ public class MainFormController implements Initializable {
         showData();
         // Clear
         productIdText.setText("");
+        productIdText.setDisable(false);
         productNameText.setText("");
         categoryBox.getSelectionModel().clearSelection();
         countText.setText("");
@@ -268,7 +276,7 @@ public class MainFormController implements Initializable {
 
     public void onImportClick() throws IOException {
         FileChooser openFile = new FileChooser();
-        openFile.getExtensionFilters().add(new FileChooser.ExtensionFilter("Open Image File", "*png", "*jpg"));
+        openFile.getExtensionFilters().add(new FileChooser.ExtensionFilter("Выбрать картинку", "*png", "*jpg"));
         File file = openFile.showOpenDialog(mainForm.getScene().getWindow());
         if (file != null) {
             imageBytes = Files.readAllBytes(file.toPath());
@@ -287,12 +295,12 @@ public class MainFormController implements Initializable {
             ProductDao prodData;
             while (result.next()) {
                 prodData = new ProductDao(
-                        result.getInt("p.id"),
-                        result.getString("p.name"),
-                        result.getInt("p.price"),
-                        result.getInt("p.count"),
-                        result.getString("c.name"),
-                        new Image(new ByteArrayInputStream(result.getBytes("p.image")))
+                        result.getInt(1),
+                        result.getString(2),
+                        result.getInt(3),
+                        result.getInt(4),
+                        result.getString(5),
+                        result.getBytes(6)
                 );
                 listData.add(prodData);
             }
@@ -310,6 +318,20 @@ public class MainFormController implements Initializable {
         columnCount.setCellValueFactory(new PropertyValueFactory<>("count"));
         columnPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         columnCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
+        columnImage.setCellFactory(param -> {
+            final ImageView imageview = new ImageView();
+            imageview.setFitHeight(50);
+            imageview.setFitWidth(50);
+            TableCell<ProductDao, Image> cell = new TableCell<>() {
+                public void updateItem(Image item, boolean empty) {
+                    if (item != null) {
+                        imageview.setImage(item);
+                    }
+                }
+            };
+            cell.setGraphic(imageview);
+            return cell;
+        });
         columnImage.setCellValueFactory(new PropertyValueFactory<>("image"));
 
         productsTable.setItems(products);
@@ -322,14 +344,20 @@ public class MainFormController implements Initializable {
             return;
         }
         productIdText.setText(String.valueOf(dao.getId()));
+        productIdText.setDisable(true);
         productNameText.setText(dao.getName());
         countText.setText(String.valueOf(dao.getCount()));
         priceText.setText(String.valueOf(dao.getPrice()));
         image = dao.getImage();
-        int w = (int)image.getWidth();
-        int h = (int)image.getHeight();
-        image.getPixelReader().getPixels(0, 0, w, h, PixelFormat.getByteBgraInstance(), imageBytes, 0, w * 4);
+        imageBytes = dao.getBytes();
         productImage.setImage(image);
+        var categories = fetchCategories();
+        categoryBox.setItems(categories);
+        categoryBox.getSelectionModel().select(
+                categories.stream().filter(c ->
+                        Objects.equals(c.getName(), dao.getCategory())
+                ).findFirst().get()
+        );
     }
 
     public void logout() {
@@ -360,20 +388,49 @@ public class MainFormController implements Initializable {
         usernameLabel.setText(name);
     }
 
+    private ObservableList<Category> fetchCategories() {
+        ObservableList<Category> listData = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM categories";
+        connect = Database.getConnection();
+        try {
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+            while (result.next()) {
+                listData.add(new Category(
+                        result.getInt("id"),
+                        result.getString("name")
+                ));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listData;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         showData();
-        imagePane.setOnDragOver(event -> {
-            Dragboard db = event.getDragboard();
-            if (db.hasImage()) {
-                event.acceptTransferModes(TransferMode.COPY);
-            }
-        });
+        categoryBox.setItems(fetchCategories());
         imagePane.setOnDragDropped(event -> {
             Dragboard db = event.getDragboard();
-            if (db.hasImage()) {
-                productImage.setImage(db.getImage());
+            if (db.hasFiles()) {
+                try {
+                    imageBytes = Files.readAllBytes(db.getFiles().getFirst().toPath());
+                    image = new Image(new ByteArrayInputStream(imageBytes), 120, 127, false, true);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                productImage.setImage(image);
                 event.setDropCompleted(true);
+                event.consume();
+            }
+        });
+        imagePane.setOnDragEntered(DragEvent::consume);
+        imagePane.setOnDragExited(DragEvent::consume);
+        imagePane.setOnDragOver(event -> {
+            Dragboard db = event.getDragboard();
+            if (db.hasImage() || db.hasFiles()) {
+                event.acceptTransferModes(TransferMode.ANY);
             }
         });
     }
