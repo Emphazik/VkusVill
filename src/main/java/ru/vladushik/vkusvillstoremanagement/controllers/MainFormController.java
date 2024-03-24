@@ -54,6 +54,9 @@ public class MainFormController implements Initializable {
     private TextField priceText;
 
     @FXML
+    private TextField weightText;
+
+    @FXML
     private ImageView productImage;
 
     @FXML
@@ -82,6 +85,9 @@ public class MainFormController implements Initializable {
 
     @FXML
     private TableColumn<ProductDao, Integer> columnPrice;
+
+    @FXML
+    private TableColumn<ProductDao, Integer> columnWeight;
 
     @FXML
     private TableColumn<ProductDao, Image> columnImage;
@@ -123,19 +129,19 @@ public class MainFormController implements Initializable {
     private ObservableList<ProductDao> products = FXCollections.observableArrayList();
 
     private boolean checkEmptyFields() {
-        return productIdText.getText().isEmpty()
-                || productNameText.getText().isEmpty()
+        return productNameText.getText().isEmpty()
                 || countText.getText().isEmpty()
                 || priceText.getText().isEmpty()
+                || weightText.getText().isEmpty()
                 || categoryBox.getSelectionModel().isEmpty();
     }
 
     public void onAddClick() {
         if (checkEmptyFields()) {
             alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Error Message");
+            alert.setTitle("Cообщение об ошибке");
             alert.setHeaderText(null);
-            alert.setContentText("Please fill all blank fields");
+            alert.setContentText("Пожалуйста, заполните все пустые поля");
             alert.showAndWait();
         } else {
             String checkProdID = "SELECT * FROM products WHERE id = '" + productIdText.getText() + "'";
@@ -145,26 +151,27 @@ public class MainFormController implements Initializable {
                 result = statement.executeQuery(checkProdID);
                 if (result.next()) {
                     alert = new Alert(AlertType.ERROR);
-                    alert.setTitle("Error Message");
+                    alert.setTitle("Cообщение об ошибке");
                     alert.setHeaderText(null);
-                    alert.setContentText(productIdText.getText() + " is already taken");
+                    alert.setContentText(productIdText.getText() + " уже занято");
                     alert.showAndWait();
                 } else {
                     String insertData = "INSERT INTO products "
-                            + "(name, price, count, category_id, image)"
-                            + "VALUES(?,?,?,?,?)";
+                            + "(name, price, count, category_id, image, weight )"
+                            + "VALUES(?,?,?,?,?,?)";
                     prepare = connect.prepareStatement(insertData);
-                    prepare.setString(1, productIdText.getText());
+                    prepare.setString(1, productNameText.getText());
                     prepare.setInt(2, Integer.parseInt(priceText.getText()));
                     prepare.setInt(3, Integer.parseInt(countText.getText()));
                     prepare.setInt(4, categoryBox.getSelectionModel().getSelectedItem().getId());
                     prepare.setBytes(5, imageBytes);
+                    prepare.setInt(6, Integer.parseInt(weightText.getText()));
                     prepare.executeUpdate();
 
                     alert = new Alert(AlertType.INFORMATION);
-                    alert.setTitle("Error Message");
+                    alert.setTitle("Cообщение об ошибке");
                     alert.setHeaderText(null);
-                    alert.setContentText("Successfully Added!");
+                    alert.setContentText("Успешно добавлено!");
                     alert.showAndWait();
 
                     onClearClick();
@@ -178,18 +185,18 @@ public class MainFormController implements Initializable {
     public void onUpdateClick() {
         if (checkEmptyFields()) {
             alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Error Message");
+            alert.setTitle("Cообщение об ошибке");
             alert.setHeaderText(null);
-            alert.setContentText("Please fill all blank fields");
+            alert.setContentText("Пожалуйста, заполните все пустые поля");
             alert.showAndWait();
         } else {
-            String updateData = "UPDATE products SET name = ?, count = ?, price = ?, category_id = ?, image = ? WHERE id = ?";
+            String updateData = "UPDATE products SET name = ?, count = ?, price = ?, category_id = ?, image = ?, weight = ? WHERE id = ?";
             connect = Database.getConnection();
             try {
                 alert = new Alert(AlertType.CONFIRMATION);
-                alert.setTitle("Error Message");
+                alert.setTitle("Cообщение об ошибке");
                 alert.setHeaderText(null);
-                alert.setContentText("Are you sure you want to UPDATE ProductDao ID: " + productIdText.getText() + "?");
+                alert.setContentText("Вы уверены, что хотите обновить ProductDao ID: " + productIdText.getText() + "?");
                 Optional<ButtonType> option = alert.showAndWait();
                 if (option.get().equals(ButtonType.OK)) {
                     prepare = connect.prepareStatement(updateData);
@@ -198,21 +205,22 @@ public class MainFormController implements Initializable {
                     prepare.setInt(3, Integer.parseInt(priceText.getText()));
                     prepare.setInt(4, categoryBox.getSelectionModel().getSelectedItem().getId());
                     prepare.setBytes(5, imageBytes);
-                    prepare.setInt(6, Integer.parseInt(productIdText.getText()));
+                    prepare.setInt(6, Integer.parseInt(weightText.getText()));
+                    prepare.setInt(7, Integer.parseInt(productIdText.getText()));
                     prepare.executeUpdate();
 
                     alert = new Alert(AlertType.INFORMATION);
-                    alert.setTitle("Error Message");
+                    alert.setTitle("Cообщение об ошибке");
                     alert.setHeaderText(null);
-                    alert.setContentText("Successfully Updated!");
+                    alert.setContentText("Успешно обновлено!");
                     alert.showAndWait();
 
                     onClearClick();
                 } else {
                     alert = new Alert(AlertType.ERROR);
-                    alert.setTitle("Error Message");
+                    alert.setTitle("Cообщение об ошибке");
                     alert.setHeaderText(null);
-                    alert.setContentText("Cancelled.");
+                    alert.setContentText("Отменить.");
                     alert.showAndWait();
                 }
             } catch (Exception e) {
@@ -224,15 +232,15 @@ public class MainFormController implements Initializable {
     public void onDeleteClick() {
         if (dao.getId() == 0) {
             alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Error Message");
+            alert.setTitle("Cообщение об ошибке");
             alert.setHeaderText(null);
-            alert.setContentText("Please fill all blank fields");
+            alert.setContentText("Пожалуйста, заполните все пустые поля");
             alert.showAndWait();
         } else {
             alert = new Alert(AlertType.CONFIRMATION);
-            alert.setTitle("Error Message");
+            alert.setTitle("Cообщение об ошибке");
             alert.setHeaderText(null);
-            alert.setContentText("Are you sure you want to DELETE ProductDao ID: " + productIdText.getText() + "?");
+            alert.setContentText("Вы уверены, что хотите удалить ProductDao ID: " + productIdText.getText() + "?");
             Optional<ButtonType> option = alert.showAndWait();
             if (option.get().equals(ButtonType.OK)) {
                 String deleteData = "DELETE FROM products WHERE id = ?";
@@ -242,9 +250,9 @@ public class MainFormController implements Initializable {
                     prepare.executeUpdate();
 
                     alert = new Alert(AlertType.ERROR);
-                    alert.setTitle("Error Message");
+                    alert.setTitle("Cообщение об ошибке");
                     alert.setHeaderText(null);
-                    alert.setContentText("successfully Deleted!");
+                    alert.setContentText("Успешно удален!");
                     alert.showAndWait();
 
                     onClearClick();
@@ -253,30 +261,30 @@ public class MainFormController implements Initializable {
                 }
             } else {
                 alert = new Alert(AlertType.ERROR);
-                alert.setTitle("Error Message");
+                alert.setTitle("Cообщение об ошибке");
                 alert.setHeaderText(null);
-                alert.setContentText("Cancelled");
+                alert.setContentText("Отменить");
                 alert.showAndWait();
             }
         }
     }
 
     public void onClearClick() {
-        // Update
+        // Обновить
         showData();
-        // Clear
+        // Очистить
         productIdText.setText("");
-        productIdText.setDisable(false);
         productNameText.setText("");
         categoryBox.getSelectionModel().clearSelection();
         countText.setText("");
         priceText.setText("");
         productImage.setImage(null);
+        weightText.setText("");
     }
 
     public void onImportClick() throws IOException {
         FileChooser openFile = new FileChooser();
-        openFile.getExtensionFilters().add(new FileChooser.ExtensionFilter("Выбрать картинку", "*png", "*jpg"));
+        openFile.getExtensionFilters().add(new FileChooser.ExtensionFilter("Выбрать картинку", "*", "*png", "*jpg"));
         File file = openFile.showOpenDialog(mainForm.getScene().getWindow());
         if (file != null) {
             imageBytes = Files.readAllBytes(file.toPath());
@@ -287,7 +295,7 @@ public class MainFormController implements Initializable {
 
     public ObservableList<ProductDao> fetchData() {
         ObservableList<ProductDao> listData = FXCollections.observableArrayList();
-        String sql = "SELECT p.id, p.name, p.price, p.count, c.name, p.image FROM products p INNER JOIN categories c ON p.category_id = c.id";
+        String sql = "SELECT p.id, p.name, p.price, p.count, c.name, p.image, p.weight FROM products p INNER JOIN categories c ON p.category_id = c.id";
         connect = Database.getConnection();
         try {
             prepare = connect.prepareStatement(sql);
@@ -300,7 +308,8 @@ public class MainFormController implements Initializable {
                         result.getInt(3),
                         result.getInt(4),
                         result.getString(5),
-                        result.getBytes(6)
+                        result.getBytes(6),
+                        result.getInt(7)
                 );
                 listData.add(prodData);
             }
@@ -333,7 +342,7 @@ public class MainFormController implements Initializable {
             return cell;
         });
         columnImage.setCellValueFactory(new PropertyValueFactory<>("image"));
-
+        columnWeight.setCellValueFactory(new PropertyValueFactory<>("weight"));
         productsTable.setItems(products);
     }
 
@@ -344,13 +353,13 @@ public class MainFormController implements Initializable {
             return;
         }
         productIdText.setText(String.valueOf(dao.getId()));
-        productIdText.setDisable(true);
         productNameText.setText(dao.getName());
         countText.setText(String.valueOf(dao.getCount()));
         priceText.setText(String.valueOf(dao.getPrice()));
         image = dao.getImage();
         imageBytes = dao.getBytes();
         productImage.setImage(image);
+        weightText.setText(String.valueOf(dao.getWeight()));
         var categories = fetchCategories();
         categoryBox.setItems(categories);
         categoryBox.getSelectionModel().select(
@@ -363,9 +372,9 @@ public class MainFormController implements Initializable {
     public void logout() {
         try {
             alert = new Alert(AlertType.CONFIRMATION);
-            alert.setTitle("Error Message");
+            alert.setTitle("Cообщение об ошибке");
             alert.setHeaderText(null);
-            alert.setContentText("Are you sure you want to logout?");
+            alert.setContentText("Вы уверены, что хотите выйти из системы?");
             Optional<ButtonType> option = alert.showAndWait();
             if (option.get().equals(ButtonType.OK)) {
                 logout_btn.getScene().getWindow().hide();
@@ -386,6 +395,8 @@ public class MainFormController implements Initializable {
         String name = user.getUsername();
         name = name.substring(0, 1).toUpperCase() + name.substring(1);
         usernameLabel.setText(name);
+       /* usernameLabel.setFont(Font.font("Book Antiqua", FontWeight.NORMAL, 18)); */
+
     }
 
     private ObservableList<Category> fetchCategories() {

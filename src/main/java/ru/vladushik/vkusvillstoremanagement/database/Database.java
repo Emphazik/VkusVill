@@ -8,7 +8,7 @@ public class Database {
     public static Connection getConnection() {
         try {
             Class.forName("org.postgresql.Driver");
-            return DriverManager.getConnection("jdbc:postgresql://localhost/test", "postgres", "root");
+            return DriverManager.getConnection("jdbc:postgresql://localhost/cafe", "postgres", "root");
         } catch (Exception e) {
             e.printStackTrace();
             return null;

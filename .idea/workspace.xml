@@ -4,31 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="016f0048-ab74-44d9-9303-3fb93d44c93a" name="Changes" comment="second commit">
+    <list default="true" id="0f10cdb0-7004-4b48-ad7e-657b17b94cc5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/34af59e2-2fd5-4c57-ad2f-68ec4e87320e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/34af59e2-2fd5-4c57-ad2f-68ec4e87320e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/34af59e2-2fd5-4c57-ad2f-68ec4e87320e.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/34af59e2-2fd5-4c57-ad2f-68ec4e87320e/storage_v2/_src_/database/cafe.nXkuAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/34af59e2-2fd5-4c57-ad2f-68ec4e87320e/storage_v2/_src_/database/cafe.nXkuAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/34af59e2-2fd5-4c57-ad2f-68ec4e87320e/storage_v2/_src_/database/cafe.nXkuAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/34af59e2-2fd5-4c57-ad2f-68ec4e87320e/storage_v2/_src_/database/cafe.nXkuAA/schema/public.abK9xQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/controllers/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/controllers/MainFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/controllers/MainFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/dao/ProductDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/database/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ru/vladushik/vkusvillstoremanagement/main-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/vladushik/vkusvillstoremanagement/main-form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/vladushik/vkusvillstoremanagement/mainFormDesign.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/vladushik/vkusvillstoremanagement/mainFormDesign.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="FxmlFile" />
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,41 +37,34 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+        <option name="mavenHome" value="Use Maven wrapper" />
       </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="2e5YE8XluhlMqH8bspQetU65DwI" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectId" id="2e8LFiaRtakFOa6XSW5255YrBz0" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Application.HelloApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/zolpa/IdeaProjects/VkusVill/libs/fontawesomefx-8.2.jar",
+    "last_opened_file_path": "C:/Users/andre/Downloads/VkusVillStoreManagement/libs/fontawesomefx-8.2.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.45747125",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "inlay.hints",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -82,15 +73,6 @@
     ]
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\zolpa\IdeaProjects\VkusVill\libs" />
-      <recent name="C:\Users\andre\Downloads\VkusVillStoreManagement\src\main\resources\ru\vladushik\vkusvillstoremanagement" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\andre\Downloads\VkusVillStoreManagement\src\main\resources\ru\vladushik\vkusvillstoremanagement" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.vladushik.vkusvillstoremanagement.HelloApplication" />
@@ -111,63 +93,32 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-20.0.2-corretto-20.0.2.1-4caba194b151-5bc9ecd2" />
-        <option value="jdk-21.0.2-corretto-21.0.2-4caba194b151-51586f01" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="016f0048-ab74-44d9-9303-3fb93d44c93a" name="Changes" comment="" />
-      <created>1711195793744</created>
+      <changelist id="0f10cdb0-7004-4b48-ad7e-657b17b94cc5" name="Changes" comment="" />
+      <created>1711281158291</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1711195793744</updated>
-      <workItem from="1711195794888" duration="7153000" />
-      <workItem from="1711207478939" duration="17889000" />
-      <workItem from="1711232865324" duration="303000" />
-      <workItem from="1711274397778" duration="5815000" />
+      <updated>1711281158291</updated>
+      <workItem from="1711281165405" duration="5947000" />
+      <workItem from="1711290145949" duration="1111000" />
+      <workItem from="1711293871574" duration="5787000" />
     </task>
-    <task id="LOCAL-00001" summary="init commit">
-      <option name="closed" value="true" />
-      <created>1711218440495</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1711218440495</updated>
-    </task>
-    <task id="LOCAL-00002" summary="second commit">
-      <option name="closed" value="true" />
-      <created>1711218556902</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1711218556902</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="init commit" />
-    <MESSAGE value="second commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="second commit" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/vladushik/vkusvillstoremanagement/controllers/LoginController.java</url>
-          <line>225</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

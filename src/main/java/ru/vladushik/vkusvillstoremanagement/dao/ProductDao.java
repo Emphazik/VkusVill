@@ -13,8 +13,9 @@ public class ProductDao {
     private String category;
     private byte[] bytes;
     private Image image;
+    private int weight;
 
-    public ProductDao(int id, String name, int price, int count, String category, byte[] bytes) {
+    public ProductDao(int id, String name, int price, int count, String category, byte[] bytes, int weight) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -22,9 +23,22 @@ public class ProductDao {
         this.category = category;
         this.bytes = bytes;
         this.image = new Image(new ByteArrayInputStream(this.bytes));
+        this.weight = weight;
     }
 
     public ProductDao() {
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public IntegerProperty getWeightProperty() {
+        return new SimpleIntegerProperty(weight);
     }
 
     public int getId() {

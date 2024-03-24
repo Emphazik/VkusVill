@@ -107,9 +107,9 @@ public class LoginController {
     public void loginBtn() {
         if (loginSignIn.getText().isEmpty() || passwordSignIn.getText().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Message");
+            alert.setTitle("Сообщение об ошибке");
             alert.setHeaderText(null);
-            alert.setContentText("Incorrect Username/Password");
+            alert.setContentText("Неверное имя пользователя/пароль");
             alert.showAndWait();
         } else {
             String selectData = "SELECT * FROM users WHERE login = ? and password = ?";
@@ -128,11 +128,11 @@ public class LoginController {
                     user.setSecret(result.getString("secret"));
 
                     alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Information Message");
+                    alert.setTitle("Информационное сообщение");
                     alert.setHeaderText(null);
-                    alert.setContentText("Successfully Login!");
+                    alert.setContentText("Успешная авторизация!");
                     alert.showAndWait();
-                    // LINK YOUR MAIN FORM
+                    // ССЫЛКА НА СВОЮ ОСНОВНУЮ ФОРМУ
                     FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("main-form.fxml"));
                     Parent root = loader.load();
                     MainFormController c = loader.getController();
@@ -140,7 +140,7 @@ public class LoginController {
                     c.displayUsername();
                     Stage stage = new Stage();
                     Scene scene = new Scene(root);
-                    stage.setTitle("");
+                    stage.setTitle("ВкуссВилл: Управление продуктами");
                     stage.setMinWidth(1100);
                     stage.setMinHeight(600);
                     stage.setScene(scene);
@@ -148,11 +148,11 @@ public class LoginController {
                     stage.show();
 
                     si_loginBtn.getScene().getWindow().hide();
-                } else { // IF NOT, THEN THE ERROR MESSAGE WILL APPEAR
+                } else { // ЕСЛИ НЕТ, ТО ПОЯВИТСЯ СООБЩЕНИЕ ОБ ОШИБКЕ
                     alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error Message");
+                    alert.setTitle("Сообщение об ошибке");
                     alert.setHeaderText(null);
-                    alert.setContentText("Incorrect Login/Password");
+                    alert.setContentText("Неверный логин/пароль");
                     alert.showAndWait();
                 }
             } catch (Exception e) {
@@ -165,9 +165,9 @@ public class LoginController {
         if (su_username.getText().isEmpty() || passwordSignUp.getText().isEmpty()
                 || su_answer.getText().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Message");
+            alert.setTitle("Сообщение об ошибке");
             alert.setHeaderText(null);
-            alert.setContentText("Please fill all blank fields");
+            alert.setContentText("Пожалуйста, заполните все пустые поля");
             alert.showAndWait();
         } else {
             String regData = "INSERT INTO users (username, login, password, secret) VALUES (?,?,?,?)";
@@ -178,15 +178,15 @@ public class LoginController {
                 result = prepare.executeQuery();
                 if (result.next()) {
                     alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error Message");
+                    alert.setTitle("Сообщение об ошибке");
                     alert.setHeaderText(null);
-                    alert.setContentText(su_username.getText() + " is already taken");
+                    alert.setContentText(su_username.getText() + " уже занято");
                     alert.showAndWait();
                 } else if (passwordSignUp.getText().length() < 8) {
                     alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error Message");
+                    alert.setTitle("Сообщение об ошибке");
                     alert.setHeaderText(null);
-                    alert.setContentText("Invalid Password, atleast 8 characters are needed");
+                    alert.setContentText("Неверный пароль, требуется не менее 8 символов");
                     alert.showAndWait();
                 } else {
                     prepare = connect.prepareStatement(regData);
@@ -197,9 +197,9 @@ public class LoginController {
                     prepare.executeUpdate();
 
                     alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Information Message");
+                    alert.setTitle("Информационное сообщение");
                     alert.setHeaderText(null);
-                    alert.setContentText("Successfully registered Account!");
+                    alert.setContentText("Успешно зарегистрированный аккаунт!");
                     alert.showAndWait();
 
                     su_username.setText("");
@@ -230,9 +230,9 @@ public class LoginController {
     public void proceedBtn() {
         if (fp_username.getText().isEmpty() || fp_answer.getText().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Message");
+            alert.setTitle("Сообщение об ошибке");
             alert.setHeaderText(null);
-            alert.setContentText("Please fill all blank fields");
+            alert.setContentText("Пожалуйста, заполните все пустые поля");
             alert.showAndWait();
         } else {
             String selectData = "SELECT * FROM users WHERE username = ? AND secret = ?";
@@ -247,9 +247,9 @@ public class LoginController {
                     fp_questionForm.setVisible(false);
                 } else {
                     alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error Message");
+                    alert.setTitle("Сообщение об ошибке");
                     alert.setHeaderText(null);
-                    alert.setContentText("Incorrect Information");
+                    alert.setContentText("Неверная информация");
                     alert.showAndWait();
                 }
             } catch (Exception e) {
@@ -261,9 +261,9 @@ public class LoginController {
     public void changePassBtn() {
         if (npNewPassword.getText().isEmpty() || npConfirmPassword.getText().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Message");
+            alert.setTitle("Сообщение об ошибке");
             alert.setHeaderText(null);
-            alert.setContentText("Please fill all blank fields");
+            alert.setContentText("Пожалуйста, заполните все пустые поля");
             alert.showAndWait();
         } else {
             if (npNewPassword.getText().equals(npConfirmPassword.getText())) {
@@ -281,14 +281,13 @@ public class LoginController {
                     prepare.executeUpdate();
 
                     alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Information Message");
+                    alert.setTitle("Информационное сообщение");
                     alert.setHeaderText(null);
-                    alert.setContentText("Successfully changed Password!");
+                    alert.setContentText("Успешно изменен пароль!");
                     alert.showAndWait();
 
                     si_loginForm.setVisible(true);
                     np_newPassForm.setVisible(false);
-                    // TO CLEAR FIELDS
                     npConfirmPassword.setText("");
                     npNewPassword.setText("");
                     fp_answer.setText("");
@@ -298,9 +297,9 @@ public class LoginController {
                 }
             } else {
                 alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error Message");
+                alert.setTitle("Сообщение об ошибке");
                 alert.setHeaderText(null);
-                alert.setContentText("Not match");
+                alert.setContentText("Не совпадает");
                 alert.showAndWait();
             }
         }
