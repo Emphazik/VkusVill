@@ -28,6 +28,9 @@ import ru.vladushik.vkusvillstoremanagement.database.Database;
 import ru.vladushik.vkusvillstoremanagement.entity.Category;
 import ru.vladushik.vkusvillstoremanagement.entity.User;
 
+import javafx.collections.transformation.FilteredList;
+import java.util.function.Predicate;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -46,6 +49,11 @@ public class MainFormController implements Initializable {
 
     @FXML
     private ComboBox<Category> categoryBox;
+
+    @FXML
+    private TextField SearchTextField;
+
+    private FilteredList<ProductDao> filteredList;
 
     @FXML
     private TextField countText;
@@ -321,6 +329,10 @@ public class MainFormController implements Initializable {
 
     public void showData() {
         products = fetchData();
+        SearchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredList = new FilteredList<>(products, createPredicate(newValue));
+            productsTable.setItems(filteredList);
+        });
 
         columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
         columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -333,9 +345,7 @@ public class MainFormController implements Initializable {
             imageview.setFitWidth(50);
             TableCell<ProductDao, Image> cell = new TableCell<>() {
                 public void updateItem(Image item, boolean empty) {
-                    if (item != null) {
                         imageview.setImage(item);
-                    }
                 }
             };
             cell.setGraphic(imageview);
@@ -344,6 +354,7 @@ public class MainFormController implements Initializable {
         columnImage.setCellValueFactory(new PropertyValueFactory<>("image"));
         columnWeight.setCellValueFactory(new PropertyValueFactory<>("weight"));
         productsTable.setItems(products);
+
     }
 
     public void selectData() {
@@ -421,6 +432,7 @@ public class MainFormController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         showData();
+
         categoryBox.setItems(fetchCategories());
         imagePane.setOnDragDropped(event -> {
             Dragboard db = event.getDragboard();
@@ -444,6 +456,19 @@ public class MainFormController implements Initializable {
                 event.acceptTransferModes(TransferMode.ANY);
             }
         });
+    }
+
+    private Predicate<ProductDao> createPredicate(String searchText) {
+        return product -> {
+            // Если поисковая строка пустая, отображаем все продукты
+            if (searchText == null || searchText.isEmpty()) {
+                return true;
+            }
+            // Иначе фильтруем продукты по введенному тексту
+            String lowerCaseSearchText = searchText.toLowerCase();
+            return product.getName().toLowerCase().contains(lowerCaseSearchText)
+                    || product.getCategory().toLowerCase().contains(lowerCaseSearchText);
+        };
     }
 
 }
